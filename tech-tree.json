@@ -12,17 +12,17 @@
       "blurb": "Lobby + Three floors of tiles are in the game",
       "icon": "assets/arena.png"
     },
+    "orbs": {
+      "dependencies": ["rounds"],
+      "display-name": "Orbs",
+      "blurb": "Collectable orbs spawn every 30s, granting a short ability",
+      "icon": "assets/power-up.png"
+    },
     "spleef": {
       "dependencies": ["rounds"],
       "display-name": "Spleef mechanics",
       "blurb": "Players can use a shovel to break tiles",
       "icon": "assets/shovel.png"
-    },
-    "spleef-animations": {
-      "dependencies": ["spleef"],
-      "display-name": "[OPTIONAL] Complex Spleef Animations",
-      "blurb": "Spleef shovels have complex swing animations",
-      "icon": "assets/animations.png"
     },
     "push": {
       "dependencies": ["spleef"],
@@ -46,7 +46,7 @@
       "dependencies": ["start"],
       "display-name": "Create user interface templates",
       "blurb": "Match start timer/message, XP/coins notification, shop menus, ability icons, scoreboard, leaderboards, match timer",
-      "icon": "assets/user-interface"
+      "icon": "assets/user-interface.png"
     },
     "rounds": {
       "dependencies": ["ui", "arena"],
@@ -66,12 +66,6 @@
       "blurb": "Players coins/xp persist between play sessions",
       "icon": "assets/database.png"
     },
-    "orbs": {
-      "dependencies": ["rounds"],
-      "display-name": "Orbs",
-      "blurb": "Collectable orbs spawn every 30s, granting a short ability",
-      "icon": "assets/power-up.png"
-    },
     "sudden-death": {
       "dependencies": ["spleef"],
       "display-name": "Sudden death",
@@ -83,6 +77,12 @@
       "display-name": "Special tile textures",
       "blurb": "Ice tiles are slippery, sticky tiles reduce speed, bounce tiles are bouncy",
       "icon": "assets/texture.png"
+    },
+    "spleef-animations": {
+      "dependencies": ["spleef"],
+      "display-name": "[OPTIONAL] Complex Spleef Animations",
+      "blurb": "Spleef shovels have complex swing animations",
+      "icon": "assets/animations.png"
     },
     "spectate": {
       "dependencies": ["rounds"],
