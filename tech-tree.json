@@ -1,177 +1,166 @@
 {
   "misc": {
-    "pretty-status-website": {
-      "dependencies": ["planar-skill-tree"],
-      "icon": "assets/glow-up.png",
-      "display-name": "A Pretty Project Status Website",
-      "blurb": "Make the project status website look like the Github or Spacex website to impress newcomers"
+    "start": {
+      "dependencies": [],
+      "display-name": "Start Spleef X3",
+      "blurb": "Begin contract with DibDob studios",
+      "icon": "assets/power-icon.png"
     },
-
-    "mvp": {
-      "dependencies": ["discord-community"],
-      "icon": "assets/blueprint.png",
-      "display-name": "Minimum Viable Product",
-      "blurb": "Build a prototype with the core functionality of the game and test if it's fun.",
-      "completed": "12-12-23",
-      "link": "https://www.roblox.com/games/13403894524/Cargo",
-      "link-text": "Play it here"
+    "arena": {
+      "dependencies": ["start"],
+      "display-name": "Create arena",
+      "blurb": "Lobby + Three floors of tiles are in the game",
+      "icon": "assets/arena.png"
     },
-    "tilemaps": {
-      "dependencies": ["user-testing-beta"],
-      "icon": "assets/earth.jpg",
-      "display-name": "Round Planets & Ship Interiors",
-      "blurb": "The game can save/load grids of blocks, either in rectangles for ship/building interiors or round for planets",
-      "started": "1-18-24",
-      "completed": "1-30-24",
-      "links": {
-        "GIF #1": "https://gyazo.com/efcf4923f88895fc666217157eb1275a",
-        "GIF #2": "https://gyazo.com/91456c76b849ffdf16222610745ab78e",
-        "Test here": "https://www.roblox.com/games/14556858165/ship-crew-rpg"
-      }
+    "spleef": {
+      "dependencies": ["rounds"],
+      "display-name": "Spleef mechanics",
+      "blurb": "Players can use a shovel to break tiles",
+      "icon": "assets/shovel.png"
+    },
+    "spleef-animations": {
+      "dependencies": ["spleef"],
+      "display-name": "[OPTIONAL] Complex Spleef Animations",
+      "blurb": "Spleef shovels have complex swing animations",
+      "icon": "assets/animations.png"
+    },
+    "push": {
+      "dependencies": ["spleef"],
+      "display-name": "Push ability",
+      "blurb": "Player can shove an opponent away",
+      "icon": "assets/push.svg"
+    },
+    "teleport": {
+      "dependencies": ["spleef"],
+      "display-name": "Teleport ability",
+      "blurb": "Player character can teleport once per match",
+      "icon": "assets/teleport.png"
+    },
+    "lightning": {
+      "dependencies": ["spleef"],
+      "display-name": "Lightning ability",
+      "blurb": "Player can destroy tiles with a lightning strike",
+      "icon": "assets/lightning.png"
+    },
+    "ui": {
+      "dependencies": ["start"],
+      "display-name": "Create user interface templates",
+      "blurb": "Match start timer/message, XP/coins notification, shop menus, ability icons, scoreboard, leaderboards, match timer",
+      "icon": "assets/user-interface"
+    },
+    "rounds": {
+      "dependencies": ["ui", "arena"],
+      "display-name": "Rounds",
+      "blurb": "Teleport players into match; win/loss logic, timer UI",
+      "icon": "assets/timer.png"
+    },
+    "coins": {
+      "dependencies": ["spleef"],
+      "display-name": "Coins & XP",
+      "blurb": "Players earn coins/xp from breaking tiles, winning matches",
+      "icon": "assets/coins.png"
+    },
+    "database": {
+      "dependencies": ["coins"],
+      "display-name": "Database",
+      "blurb": "Players coins/xp persist between play sessions",
+      "icon": "assets/database.png"
+    },
+    "orbs": {
+      "dependencies": ["rounds"],
+      "display-name": "Orbs",
+      "blurb": "Collectable orbs spawn every 30s, granting a short ability",
+      "icon": "assets/power-up.png"
+    },
+    "sudden-death": {
+      "dependencies": ["spleef"],
+      "display-name": "Sudden death",
+      "blurb": "If more than one player survives to end of match, all tiles have 1 HP",
+      "icon": "assets/skull.png"
     },
     "tile-textures": {
-      "dependencies": ["tilemaps"],
-      "icon": "assets/grass-block.webp",
-      "display-name": "Render Tile Textures",
-      "blurb": "Apply 8-bit style textures to blocks"
+      "dependencies": ["spleef"],
+      "display-name": "Special tile textures",
+      "blurb": "Ice tiles are slippery, sticky tiles reduce speed, bounce tiles are bouncy",
+      "icon": "assets/texture.png"
     },
-    "characters": {
-      "dependencies": ["tilemaps"],
-      "icon": "assets/character.png",
-      "display-name": "Playable Characters",
-      "blurb": "Players can (re)spawn a character which moves, jumps, falls in gravity, takes damage, and dies",
-      "started": "1-31-2024"
+    "spectate": {
+      "dependencies": ["rounds"],
+      "display-name": "Spectate mode",
+      "blurb": "Players can spectate from lobby using a free cam",
+      "icon": "assets/binoculars.png"
     },
-    "character-animations": {
-      "dependencies": ["tile-textures", "characters"],
-      "icon": "assets/runner.jpg",
-      "display-name": "Character Movement Animations",
-      "blurb": "When characters walk, jump, fall, or sit still, they are animated with spritesheets"
+    "levels": {
+      "dependencies": ["coins"],
+      "display-name": "Levels",
+      "blurb": "Players can level up by earning XP, which unlocks abilities",
+      "icon": "assets/level-up.png"
     },
-    "character-health": {
-      "dependencies": ["character-animations"],
-      "icon": "assets/hearts.jpg",
-      "display-name": "Character Health Displays",
-      "blurb": "Players can see their own health and when characters take damage"
+    "scoreboard": {
+      "dependencies": ["levels"],
+      "display-name": "Scoreboard",
+      "blurb": "Program UI displaying all users in-game and their level, coins, XP",
+      "icon": "assets/scoreboard.png"
     },
-    "first-solar-system": {
-      "dependencies": ["rcss"],
-      "icon": "assets/solar-system.png",
-      "display-name": "Build a Solar System",
-      "blurb": "A set of planets, moons, and asteroids orbiting a single star"
+    "quests": {
+      "dependencies": ["levels"],
+      "display-name": "Daily/Weekly Quests",
+      "blurb": "e.g. Break 20 sticky tiles, win 3 matches, push 5 players, etc",
+      "icon": "assets/quest.png"
     },
-    "day-night-cycle": {
-      "dependencies": ["rcss"],
-      "icon": "assets/sun-moon.jpg",
-      "display-name": "Day/Night Cycle",
-      "blurb": "Suns are visible in the skies of worlds, relative to the orientation of the world and the character's position"
+    "weekend-boosts": {
+      "dependencies": ["coins"],
+      "display-name": "Weekend Boosts",
+      "blurb": "+50% XP/coins from Fri-Sun",
+      "icon": "assets/gifts.png"
     },
-    "lobby": {
-      "dependencies": ["first-solar-system"],
-      "icon": "assets/space-station.png",
-      "display-name": "Space Station Lobby",
-      "blurb": "Players spawn in a space station, where they join ship crews"
+    "leaderboards": {
+      "dependencies": ["scoreboard"],
+      "display-name": "Global leaderboards",
+      "blurb": "Rank & display all players by highest level, most wins, blocks destroyed, push kills, etc",
+      "icon": "assets/leaderboard2.png"
     },
-    "starry-skies": {
-      "dependencies": ["day-night-cycle"],
-      "icon": "assets/starry-sky.jpg",
-      "display-name": "Starry Skies",
-      "blurb": "Night skies are filled with stars"
+    "gamepasses":{
+      "dependencies": ["auras"],
+      "display-name": "Gamepasses",
+      "blurb": "Player can purchase VIP gamepasses, double XP pass",
+      "icon": "assets/vip.png"
     },
-  
-    "discord-community": {
-      "dependencies": [],
-      "icon": "assets/discord.png",
-      "display-name": "Discord Community Server",
-      "blurb": "Gather a following of friends and family to help test my game",
-      "completed": "1-1-2023",
-      "link": "https://discord.gg/enmKEVMKva",
-      "link-text": "Server Invite"
+    "dev-products": {
+      "dependencies": ["shop-ui"],
+      "display-name": "Developer Products",
+      "blurb": "Player can purchase single-round revive, extra teleport, coin packs",
+      "icon": "assets/microtransaction.png"
     },
-    "status-website": {
-      "dependencies": ["mvp"],
-      "icon": "assets/graph.png",
-      "display-name": "Development as a Skill Tree",
-      "blurb": "Define high-level project tasks as upgrades in a skill tree, rendered as a website (the one you're looking at right now)",
-      "completed": "1-16-2024",
-      "links": {
-        "Github repository": "https://github.com/andrewens/ship-crew-rpg-status",
-        "Website": "https://andrewens.dev/ship-crew-rpg-status/"
-      }
+    "shop-ui": {
+      "dependencies": ["levels"],
+      "display-name": "Shop menus",
+      "blurb": "Shop menus are filled with items and navigable by users",
+      "icon": "assets/shop.png"
     },
-    "planar-skill-tree": {
-      "dependencies": ["status-website"],
-      "icon": "assets/big-dipper.png",
-      "display-name": "Remove Edge Crossings from Skill Tree",
-      "blurb": "Implement a planar graph drawing algorithm using Canonical Order & Shift method"
+    "shovel-skins": {
+      "dependencies": ["shop-ui"],
+      "display-name": "Shovel skins",
+      "blurb": "Players can purchase skins for their shovel",
+      "icon": "assets/golden-shovel.png"
     },
-    "chronological-project-status": {
-      "dependencies": ["status-website"],
-      "icon": "assets/calendar.png",
-      "display-name": "Chronological Project Status",
-      "blurb": "Render game upgrades in a timeline to view project velocity/history"
+    "break-effects": {
+      "dependencies": ["shop-ui"],
+      "display-name": "Block breaking effects",
+      "blurb": "Players can purchase different effects for when they break a block",
+      "icon": "assets/explosion.png"
     },
-    "user-testing-beta": {
-      "dependencies": ["command-prompt-beta"],
-      "icon": "assets/check-mark-shield.png",
-      "display-name": "Acceptance Testing Tool (Beta)",
-      "blurb": "Write tests that any user can play and verify using the command line",
-      "completed": "1-1-2024",
-      "links": {
-        "Test it here": "https://www.roblox.com/games/15589372711/gameplay-test-runner",
-        "Github repository": "https://github.com/andrewens/gameplay-test-runner"
-      }
+    "auras": {
+      "dependencies": ["shop-ui"],
+      "display-name": "Auras",
+      "blurb": "Players can purchase VFX 'auras' for their character",
+      "icon": "assets/aura.png"
     },
-    "user-testing-v1": {
-      "dependencies": ["user-testing-beta", "command-prompt-v1"],
-      "icon": "assets/check-mark-shield.png",
-      "display-name": "Acceptance Testing Tool Version 1.0",
-      "blurb": "Rewrite Acceptance Testing Tool with unit tests to create a robust API"
-    },
-    "command-prompt-beta": {
-      "dependencies": ["mvp"],
-      "icon": "assets/command-line.png",
-      "display-name": "Custom Command Prompt (Beta)",
-      "blurb": "Developers can write CLI tools used inside of ROBLOX games",
-      "completed": "12-12-23",
-      "links": {
-        "Test it here": "https://www.roblox.com/games/15359714312/roblox-console",
-        "Github repository": "https://github.com/andrewens/roblox-console"
-      }
-    },
-    "command-prompt-v1": {
-      "dependencies": ["command-prompt-beta"],
-      "icon": "assets/textbox.png",
-      "display-name": "Command Prompt Version 1.0",
-      "blurb": "Fix ROBLOX TextBox bugs by creating a custom TextBox implementation; write unit tests to create robust software"
-    },
-    "command-windows": {
-      "dependencies": ["command-prompt-v1"],
-      "icon": "assets/browser-windows.png",
-      "display-name": "Multiple Command Windows",
-      "blurb": "Open/close multiple tabs or windows of command prompts"
-    },
-    "devops-status": {
-      "dependencies": ["lobby"],
-      "icon": "assets/status.png",
-      "display-name": "Live Server Status",
-      "blurb": "Send error reports to a discord channel to find bugs"
-    },
-    "beta-deployments": {
-      "dependencies": ["devops-status"],
-      "icon": "assets/deployment.png",
-      "display-name": "Beta Deployments",
-      "blurb": "Deploy new features to only a single server to test for bugs"
-    },
-    "rcss": {
-      "dependencies": ["characters"],
-      "icon": "assets/paint-palette.png",
-      "display-name": "Cascading Stylesheets for Lua",
-      "blurb": "Separate UI appearance / styling code from functional code",
-      "links": {
-        "Test it here": "https://www.roblox.com/games/15359714312/roblox-console",
-        "Github repository": "https://github.com/andrewens/roblox-css"
-      }
+    "emblems": {
+      "dependencies": ["levels"],
+      "display-name": "Emblems",
+      "blurb": "The GDD referenced emblems but didn't explain what they are",
+      "icon": "assets/emblem.png"
     }
   }
 }
